@@ -10,11 +10,50 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    //MARK: - View did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        updateDateandTime()
     }
+    
+    //MARK: - Outlets
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    
+    //MaRK: - Properties
+    
+    let dateFormatter = DateFormatter()
+    
+    
+    
+    
+    //MARK: - Interactions
+    @IBAction func tapRefresh(_ sender: UIButton) {
+        updateDateandTime()
+    }
+    
+    
+    
+    //MARK: - Functions
+    
+    func updateDateandTime() {
+        dateFormatter.dateStyle = .medium
+               dateFormatter.timeStyle = .medium
+               
+               dateLabel.text = dateFormatter.string(from: Date())
+    
+    }
+    
 
-
+    
+    
+    
+    
+    
+    
+    
 }
 
